@@ -19,7 +19,7 @@ Ce dépôt présente une analyse approfondie des coûts cachés dans la construc
 
 ### Visualiser le tableau
 
-1. **En ligne** : [Voir la démo]([https://votre-username.github.io/couts-societaux-llm/](https://otakuch.github.io/couts-societaux-llm/))
+1. **En ligne** : [Voir la démo](https://votre-username.github.io/couts-societaux-llm/](https://otakuch.github.io/couts-societaux-llm/)
 2. **En local** :
 ```bash
 git clone https://github.com/votre-username/couts-societaux-llm.git
