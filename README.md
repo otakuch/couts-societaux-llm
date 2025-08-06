@@ -19,7 +19,7 @@ Ce dépôt présente une analyse approfondie des coûts cachés dans la construc
 
 ### Visualiser le tableau
 
-1. **En ligne** : [Voir la démo](https://votre-username.github.io/couts-societaux-llm/](https://otakuch.github.io/couts-societaux-llm/)
+1. **En ligne** : [Voir la démo](https://otakuch.github.io/couts-societaux-llm/)
 2. **En local** :
 ```bash
 git clone https://github.com/votre-username/couts-societaux-llm.git
@@ -32,6 +32,33 @@ cd couts-societaux-llm
 - Navigateur web moderne (Chrome, Firefox, Safari, Edge)
 - Aucune installation requise
 
+## 📁 Structure du projet
+
+```
+couts-societaux-llm/
+│
+├── 📄 index.html           # Tableau interactif principal
+├── 📁 assets/              # Ressources statiques
+│   ├── 📁 css/            
+│   │   └── styles.css      # Feuilles de style
+│   ├── 📁 js/             
+│   │   └── script.js       # Scripts interactifs
+│   └── 📁 images/         
+│       └── preview.png     # Aperçu du projet
+│
+├── 📁 docs/                # Documentation
+│   ├── METHODOLOGIE.md     # Méthodologie de recherche
+│   ├── SOURCES.md          # Liste détaillée des sources
+│   └── GLOSSAIRE.md        # Termes techniques expliqués
+│
+├── 📁 data/                # Données brutes
+│   ├── couts-llm.json      # Données structurées
+│   └── couts-llm.csv       # Export CSV
+│
+├── 📄 README.md            # Ce fichier
+├── 📄 LICENSE              # Licence MIT
+├── 📄 CONTRIBUTING.md      # Guide de contribution
+└── 📄 .gitignore          # Fichiers ignorés
 ```
 
 ## 📊 Contenu du tableau
@@ -98,7 +125,7 @@ Consultez [CONTRIBUTING.md](CONTRIBUTING.md) pour plus de détails.
 
 ## 👥 Auteurs
 
-- **[Votre nom]** - *Création initiale* - [@votre-twitter](https://twitter.com/votre-handle)
+- **Naully Nicolas]** - *Création initiale* - [@naully](https://x.com/naullyn)
 
 ## 📜 Licence
 
