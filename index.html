@@ -13,191 +13,338 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
             min-height: 100vh;
-            padding: 40px 20px;
             color: #2c3e50;
+            display: flex;
+            flex-direction: column;
         }
         
         .container {
-            max-width: 1400px;
-            margin: 0 auto;
+            width: 100%;
+            height: 100vh;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
             overflow: hidden;
         }
         
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 30px;
+            padding: 20px 30px;
             text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex-shrink: 0;
         }
         
         h1 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
         
         .subtitle {
-            font-size: 14px;
+            font-size: 13px;
             opacity: 0.95;
+            font-weight: 400;
         }
         
         .table-wrapper {
-            overflow-x: auto;
-            padding: 20px;
+            flex: 1;
+            overflow: auto;
+            padding: 0;
+            background: white;
         }
         
         table {
             width: 100%;
+            min-width: 1400px;
             border-collapse: separate;
             border-spacing: 0;
-            font-size: 14px;
+            font-size: 13px;
+            table-layout: fixed;
         }
         
         thead {
-            background: #f8f9fa;
+            background: linear-gradient(to bottom, #f8f9fa, #f1f3f5);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
         }
         
         th {
-            padding: 18px 15px;
+            padding: 16px 20px;
             text-align: left;
             font-weight: 600;
             color: #495057;
             border-bottom: 2px solid #dee2e6;
-            position: sticky;
-            top: 0;
-            background: #f8f9fa;
-            z-index: 10;
-        }
-        
-        th:first-child {
-            border-radius: 8px 0 0 0;
-            min-width: 80px;
+            border-right: 1px solid #e9ecef;
+            vertical-align: middle;
+            line-height: 1.4;
         }
         
         th:last-child {
-            border-radius: 0 8px 0 0;
+            border-right: none;
+        }
+        
+        th:first-child {
+            width: 8%;
+            min-width: 120px;
+            position: sticky;
+            left: 0;
+            background: linear-gradient(to bottom, #f8f9fa, #f1f3f5);
+            z-index: 11;
+        }
+        
+        th:nth-child(2) {
+            width: 17%;
+        }
+        
+        th:nth-child(3), th:nth-child(4), th:nth-child(5), th:nth-child(6) {
+            width: 18.75%;
         }
         
         tbody tr {
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            background: white;
+        }
+        
+        tbody tr:nth-child(even) {
+            background: #fafbfc;
         }
         
         tbody tr:hover {
-            background: #f1f3f5;
-            transform: scale(1.01);
+            background: linear-gradient(90deg, #f8f9ff 0%, #f1f3ff 100%);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.1);
         }
         
         td {
-            padding: 16px 15px;
+            padding: 14px 20px;
             border-bottom: 1px solid #e9ecef;
+            border-right: 1px solid #f1f3f5;
             vertical-align: top;
             line-height: 1.6;
+            color: #495057;
+        }
+        
+        td:last-child {
+            border-right: none;
         }
         
         td:first-child {
             font-weight: 600;
-            color: #495057;
-            white-space: nowrap;
+            color: #2c3e50;
+            background: white;
+            position: sticky;
+            left: 0;
+            z-index: 5;
+            border-right: 2px solid #dee2e6;
+            box-shadow: 2px 0 4px rgba(0,0,0,0.04);
+        }
+        
+        tbody tr:nth-child(even) td:first-child {
+            background: #fafbfc;
+        }
+        
+        tbody tr:hover td:first-child {
+            background: linear-gradient(90deg, #f8f9ff 0%, #f1f3ff 100%);
         }
         
         .step-number {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
-            text-align: center;
-            line-height: 24px;
-            margin-right: 8px;
-            font-size: 12px;
-        }
-        
-        .cost-environmental {
-            color: #28a745;
-        }
-        
-        .cost-human {
-            color: #dc3545;
-        }
-        
-        .cost-technical {
-            color: #007bff;
-        }
-        
-        .cost-legal {
-            color: #6c757d;
-        }
-        
-        .ref {
-            color: #007bff;
+            margin-right: 10px;
             font-size: 11px;
-            vertical-align: super;
-            cursor: pointer;
             font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        /* Codes couleur pour les colonnes */
+        th:nth-child(3) {
+            background: linear-gradient(to bottom, #e8f5e9, #e0f2e1);
+            color: #2e7d32;
+        }
+        
+        th:nth-child(4) {
+            background: linear-gradient(to bottom, #ffebee, #ffe5e8);
+            color: #c62828;
+        }
+        
+        th:nth-child(5) {
+            background: linear-gradient(to bottom, #e3f2fd, #dbedff);
+            color: #1565c0;
+        }
+        
+        th:nth-child(6) {
+            background: linear-gradient(to bottom, #f3e5f5, #ede7f6);
+            color: #6a1b9a;
+        }
+        
+        sup {
+            color: #667eea;
+            font-size: 10px;
+            font-weight: 600;
+            margin-left: 2px;
         }
         
         .references {
-            background: #f8f9fa;
-            padding: 30px;
+            background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+            padding: 25px 40px;
             border-top: 2px solid #dee2e6;
+            flex-shrink: 0;
+            max-height: 40vh;
+            overflow-y: auto;
         }
         
         .references h2 {
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 16px;
+            margin-bottom: 15px;
             color: #495057;
+            font-weight: 600;
         }
         
         .references ol {
             list-style: none;
             counter-reset: ref-counter;
+            columns: 2;
+            column-gap: 40px;
         }
         
         .references li {
             counter-increment: ref-counter;
-            margin-bottom: 12px;
-            font-size: 12px;
+            margin-bottom: 10px;
+            font-size: 11px;
             color: #6c757d;
-            line-height: 1.6;
+            line-height: 1.5;
+            break-inside: avoid;
         }
         
         .references li:before {
             content: "[" counter(ref-counter) "] ";
-            color: #007bff;
+            color: #667eea;
             font-weight: 600;
-            margin-right: 8px;
+            margin-right: 6px;
         }
         
-        .references a {
-            color: #007bff;
-            text-decoration: none;
-            border-bottom: 1px dotted #007bff;
-            transition: all 0.3s ease;
-        }
-        
-        .references a:hover {
-            color: #0056b3;
-            border-bottom-style: solid;
-        }
-        
-        @media (max-width: 768px) {
-            .table-wrapper {
-                padding: 10px;
+        /* Optimisation plein écran */
+        @media (min-width: 1920px) {
+            table {
+                min-width: 100%;
             }
             
             th, td {
-                padding: 10px 8px;
-                font-size: 12px;
+                padding: 16px 24px;
             }
             
             h1 {
-                font-size: 20px;
+                font-size: 24px;
+            }
+            
+            .subtitle {
+                font-size: 14px;
+            }
+            
+            table {
+                font-size: 14px;
+            }
+            
+            .references ol {
+                columns: 3;
+            }
+        }
+        
+        /* Version ultra-large */
+        @media (min-width: 2560px) {
+            th, td {
+                padding: 18px 30px;
+            }
+            
+            table {
+                font-size: 15px;
+            }
+            
+            h1 {
+                font-size: 26px;
+            }
+            
+            .references ol {
+                columns: 4;
+            }
+        }
+        
+        /* Scrollbar personnalisée */
+        .table-wrapper::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        
+        .table-wrapper::-webkit-scrollbar-track {
+            background: #f1f3f5;
+        }
+        
+        .table-wrapper::-webkit-scrollbar-thumb {
+            background: #adb5bd;
+            border-radius: 5px;
+        }
+        
+        .table-wrapper::-webkit-scrollbar-thumb:hover {
+            background: #868e96;
+        }
+        
+        /* Animation d'entrée */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        tbody tr {
+            animation: fadeIn 0.3s ease-out;
+            animation-fill-mode: both;
+        }
+        
+        tbody tr:nth-child(1) { animation-delay: 0.05s; }
+        tbody tr:nth-child(2) { animation-delay: 0.1s; }
+        tbody tr:nth-child(3) { animation-delay: 0.15s; }
+        tbody tr:nth-child(4) { animation-delay: 0.2s; }
+        tbody tr:nth-child(5) { animation-delay: 0.25s; }
+        tbody tr:nth-child(6) { animation-delay: 0.3s; }
+        tbody tr:nth-child(7) { animation-delay: 0.35s; }
+        tbody tr:nth-child(8) { animation-delay: 0.4s; }
+        tbody tr:nth-child(9) { animation-delay: 0.45s; }
+        
+        /* Mode impression */
+        @media print {
+            .container {
+                height: auto;
+            }
+            
+            .header {
+                background: none;
+                color: black;
+                border-bottom: 2px solid black;
+            }
+            
+            tbody tr:hover {
+                background: transparent;
+            }
+            
+            .references {
+                page-break-before: always;
             }
         }
     </style>
@@ -205,7 +352,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Construction d'un LLM : Un réseau social complexe d'extraction</h1>
+            <h1>Construction d'un LLM : un réseau social complexe d'extraction</h1>
             <p class="subtitle">Analyse des coûts environnementaux, humains, techniques et légaux/éthiques</p>
         </div>
         
@@ -215,10 +362,10 @@
                     <tr>
                         <th>Étape</th>
                         <th>Description</th>
-                        <th class="cost-environmental">Coût Environnemental</th>
-                        <th class="cost-human">Coût Humain</th>
-                        <th class="cost-technical">Coût Technique</th>
-                        <th class="cost-legal">Coût Légal/Éthique</th>
+                        <th>Coût environnemental</th>
+                        <th>Coût humain</th>
+                        <th>Coût technique</th>
+                        <th>Coût légal/éthique</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -256,7 +403,7 @@
                     </tr>
                     <tr>
                         <td><span class="step-number">5</span>Conception du modèle</td>
-                        <td>Architecture (ex: transformateur avec billions/trillions de paramètres)</td>
+                        <td>Architecture (ex : transformateur avec billions/trillions de paramètres)</td>
                         <td>Coûts de fabrication et R&D</td>
                         <td>Contrôle concentré dans peu d'entreprises</td>
                         <td>Coûts élevés d'expérimentation et de réglage</td>
@@ -301,25 +448,25 @@
         <div class="references">
             <h2>Références et sources</h2>
             <ol>
-                <li>Crawford, K. (2021). <em>Atlas of AI: Power, Politics, and the Planetary Costs of Artificial Intelligence</em>. Yale University Press. <a href="https://www.katecrawford.net/atlas-of-ai.html" target="_blank">katecrawford.net/atlas-of-ai</a></li>
-                <li>Amnesty International. (2016). "This is what we die for: Human rights abuses in the Democratic Republic of the Congo power the global trade in cobalt". <a href="https://www.amnesty.org/en/documents/afr62/3183/2016/en/" target="_blank">amnesty.org</a></li>
-                <li>Birhane, A., et al. (2022). "The Values Encoded in Machine Learning Research". <em>FAccT '22</em>. <a href="https://dl.acm.org/doi/10.1145/3531146.3533083" target="_blank">doi.org/10.1145/3531146.3533083</a></li>
-                <li>Strubell, E., Ganesh, A., & McCallum, A. (2019). "Energy and Policy Considerations for Deep Learning in NLP". <em>ACL 2019</em>. <a href="https://aclanthology.org/P19-1355/" target="_blank">aclanthology.org/P19-1355</a></li>
-                <li>Qiu, J. (2020). "The hidden human labor powering artificial intelligence". <em>Nature</em>. <a href="https://www.nature.com/articles/d41586-020-00161-x" target="_blank">nature.com</a></li>
-                <li>Dhar, P. (2020). "The carbon impact of artificial intelligence". <em>Nature Machine Intelligence</em>, 2(8), 423-425. <a href="https://www.nature.com/articles/s42256-020-0219-9" target="_blank">nature.com</a></li>
-                <li>Bender, E. M., et al. (2021). "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?". <em>FAccT '21</em>. <a href="https://dl.acm.org/doi/10.1145/3442188.3445922" target="_blank">doi.org/10.1145/3442188.3445922</a></li>
-                <li>Hao, K. (2021). "The AI industry is built on curation work. It's been invisible—until now". <em>MIT Technology Review</em>. <a href="https://www.technologyreview.com/2021/06/02/1025622/ai-data-curation-invisible-labor/" target="_blank">technologyreview.com</a></li>
-                <li>Perrigo, B. (2023). "Exclusive: OpenAI Used Kenyan Workers on Less Than $2 Per Hour". <em>TIME</em>. <a href="https://time.com/6247678/openai-chatgpt-kenya-workers/" target="_blank">time.com</a></li>
+                <li>Crawford, K. (2021). <em>Atlas of AI: Power, Politics, and the Planetary Costs of Artificial Intelligence</em>. Yale University Press.</li>
+                <li>Amnesty International. (2016). "This is what we die for: Human rights abuses in the Democratic Republic of the Congo power the global trade in cobalt".</li>
+                <li>Birhane, A., et al. (2022). "The Values Encoded in Machine Learning Research". <em>FAccT '22</em>.</li>
+                <li>Strubell, E., Ganesh, A., & McCallum, A. (2019). "Energy and Policy Considerations for Deep Learning in NLP". <em>ACL 2019</em>.</li>
+                <li>Qiu, J. (2020). "The hidden human labor powering artificial intelligence". <em>Nature</em>.</li>
+                <li>Dhar, P. (2020). "The carbon impact of artificial intelligence". <em>Nature Machine Intelligence</em>, 2(8), 423-425.</li>
+                <li>Bender, E. M., et al. (2021). "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?". <em>FAccT '21</em>.</li>
+                <li>Hao, K. (2021). "The AI industry is built on curation work. It's been invisible—until now". <em>MIT Technology Review</em>.</li>
+                <li>Perrigo, B. (2023). "Exclusive: OpenAI Used Kenyan Workers on Less Than $2 Per Hour". <em>TIME</em>.</li>
                 <li>Gray, M. L., & Suri, S. (2019). <em>Ghost Work: How to Stop Silicon Valley from Building a New Global Underclass</em>. Houghton Mifflin Harcourt.</li>
-                <li>Bommasani, R., et al. (2021). "On the Opportunities and Risks of Foundation Models". <em>Stanford CRFM</em>. <a href="https://arxiv.org/abs/2108.07258" target="_blank">arxiv.org/abs/2108.07258</a></li>
-                <li>Patterson, D., et al. (2021). "Carbon Emissions and Large Neural Network Training". <a href="https://arxiv.org/abs/2104.10350" target="_blank">arxiv.org/abs/2104.10350</a></li>
-                <li>Weidinger, L., et al. (2021). "Ethical and social risks of harm from Language Models". <em>DeepMind</em>. <a href="https://arxiv.org/abs/2112.04359" target="_blank">arxiv.org/abs/2112.04359</a></li>
+                <li>Bommasani, R., et al. (2021). "On the Opportunities and Risks of Foundation Models". <em>Stanford CRFM</em>.</li>
+                <li>Patterson, D., et al. (2021). "Carbon Emissions and Large Neural Network Training". <em>arXiv:2104.10350</em>.</li>
+                <li>Weidinger, L., et al. (2021). "Ethical and social risks of harm from Language Models". <em>DeepMind</em>.</li>
                 <li>Roberts, S. T. (2019). <em>Behind the Screen: Content Moderation in the Shadows of Social Media</em>. Yale University Press.</li>
-                <li>Gabriel, I. (2020). "Artificial Intelligence, Values, and Alignment". <em>Minds and Machines</em>, 30(3), 411-437. <a href="https://link.springer.com/article/10.1007/s11023-020-09539-2" target="_blank">springer.com</a></li>
-                <li>Luccioni, A. S., et al. (2023). "Estimating the Carbon Footprint of BLOOM, a 176B Parameter Language Model". <a href="https://arxiv.org/abs/2211.02001" target="_blank">arxiv.org/abs/2211.02001</a></li>
+                <li>Gabriel, I. (2020). "Artificial Intelligence, Values, and Alignment". <em>Minds and Machines</em>, 30(3), 411-437.</li>
+                <li>Luccioni, A. S., et al. (2023). "Estimating the Carbon Footprint of BLOOM, a 176B Parameter Language Model". <em>arXiv:2211.02001</em>.</li>
                 <li>Zuboff, S. (2019). <em>The Age of Surveillance Capitalism</em>. PublicAffairs.</li>
-                <li>Schwartz, R., et al. (2022). "Green AI". <em>Communications of the ACM</em>, 63(12), 54-63. <a href="https://cacm.acm.org/magazines/2020/12/248800-green-ai/fulltext" target="_blank">cacm.acm.org</a></li>
-                <li>Amodei, D., et al. (2016). "Concrete Problems in AI Safety". <a href="https://arxiv.org/abs/1606.06565" target="_blank">arxiv.org/abs/1606.06565</a></li>
+                <li>Schwartz, R., et al. (2022). "Green AI". <em>Communications of the ACM</em>, 63(12), 54-63.</li>
+                <li>Amodei, D., et al. (2016). "Concrete Problems in AI Safety". <em>arXiv:1606.06565</em>.</li>
             </ol>
         </div>
     </div>
